@@ -2,7 +2,7 @@
 Change the host or any other metadata string for SIFAS apk client.
 
 # Usage
-A common use case is to change the overwrite the server host.
+A common use case is to change/overwrite the server host.
 
 ```bash
 # disassemble the patched client
