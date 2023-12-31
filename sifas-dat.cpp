@@ -62,7 +62,7 @@ int main(int argc, const char *argv[]) {
   size_t real_pos = pos + prefix.size();
 
   if (pos != std::string::npos) {
-    std::cout << searchVal << " found at offset 0x" << int(real_pos)
+    std::cout << searchVal << " found at offset 0x" << std::hex << int(real_pos)
               << std::endl;
     if (replVal.size() > 0) {
       std::ofstream dst("output.dat", std::ios::binary);
