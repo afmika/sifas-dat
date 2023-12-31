@@ -18,7 +18,17 @@ int main(int argc, const char *argv[]) {
   }
 
   std::ifstream inp(argv[1], std::ios::binary);
+  uint32_t header;
 
+  // check header
+  inp.read(reinterpret_cast<char *>(&header), sizeof(header));
+  inp.seekg(0, std::ios::beg);
+  if (header != 0xFAB11BAF) {
+    std::cerr << "Invalid file header 0x" << std::hex << header << std::endl;
+    exit(1);
+  }
+
+  // find the char sequence
   std::string str((std::istreambuf_iterator<char>(inp)),
                   std::istreambuf_iterator<char>());
 
